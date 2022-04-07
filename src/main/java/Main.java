@@ -30,8 +30,8 @@ public class Main {
 
     }
 
-    private static void writeString(List<Employee> list) {
-        try(FileWriter fileWriter = new FileWriter("data.json")) {
+    private static void writeString(List<Employee> list, String fileName) {
+        try(FileWriter fileWriter = new FileWriter(fileName)) {
             fileWriter.write(listToJson(list));
             fileWriter.flush();
 
@@ -70,6 +70,6 @@ public class Main {
 
         List<Employee> list = parseCSV(columnMapping, fileName);
 
-        writeString(list);
+        writeString(list, "data.json");
     }
 }
